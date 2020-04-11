@@ -13,4 +13,19 @@ class BeerServiceImpl : BeerService {
             style = "Pale Ale"
         }
     }
+
+    override fun saveBeer(beerDto: BeerDto): BeerDto {
+        return BeerDto().apply {
+            id = UUID.randomUUID()
+            name = "AAAAA"
+        }
+    }
+
+    override fun updateBeer(beerId: UUID, beerDto: BeerDto): BeerDto {
+        return beerDto
+    }
+
+    override fun deleteBeer(beerId: UUID) {
+        TODO("Not yet implemented")
+    }
 }

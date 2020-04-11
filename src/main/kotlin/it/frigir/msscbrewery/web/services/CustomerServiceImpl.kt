@@ -12,4 +12,11 @@ class CustomerServiceImpl : CustomerService {
             name = "John Doe"
         }
     }
+
+    override fun saveCustomer(customerDto: CustomerDto): CustomerDto {
+        return CustomerDto().apply {
+            id = UUID.randomUUID()
+            name = customerDto.name
+        }
+    }
 }

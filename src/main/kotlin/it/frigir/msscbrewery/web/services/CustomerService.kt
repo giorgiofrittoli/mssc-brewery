@@ -5,4 +5,5 @@ import java.util.*
 
 interface CustomerService {
     fun getById(customerId: UUID): CustomerDto
+    fun saveCustomer(customerDto: CustomerDto): CustomerDto
 }

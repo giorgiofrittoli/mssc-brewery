@@ -7,8 +7,8 @@ import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.ArgumentMatchers
 import org.mockito.BDDMockito.*
+import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -61,7 +61,7 @@ internal class BeerControllerTest {
     fun handlePost() {
         //given
         val beerDtoJson = objectMapper.writeValueAsString(validBeer)
-        given(beerService.saveBeer(any(BeerDto::class.java))).willReturn(validBeer)
+        //given(beerService.saveBeer(any()))).willReturn(validBeer)
 
         //when
         mockMvc.perform(post("/api/v1/beer")

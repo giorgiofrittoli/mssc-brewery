@@ -2,16 +2,13 @@ package it.frigir.msscbrewery.web.model
 
 import org.jetbrains.annotations.NotNull
 import java.util.*
-import javax.validation.constraints.Max
-import javax.validation.constraints.Min
-import javax.validation.constraints.Null
+import javax.validation.constraints.*
 
 class CustomerDto {
     @Null
     var id: UUID? = null
 
-    @NotNull
-    @Min(3)
-    @Max(100)
+    @NotBlank
+    @Size(min = 3, max = 100)
     var name: String? = null
 }

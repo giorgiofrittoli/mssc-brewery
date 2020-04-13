@@ -9,15 +9,15 @@ class BeerServiceImpl : BeerService {
     override fun getBeerByID(beerId: UUID): BeerDto {
         return BeerDto().apply {
             id = beerId
-            name = "Galaxy Cat"
-            style = "Pale Ale"
+            beerName = "Galaxy Cat"
+            beerStyle = "Pale Ale"
         }
     }
 
     override fun saveBeer(beerDto: BeerDto): BeerDto {
         return BeerDto().apply {
             id = UUID.randomUUID()
-            name = "AAAAA"
+            beerName = "AAAAA"
         }
     }
 

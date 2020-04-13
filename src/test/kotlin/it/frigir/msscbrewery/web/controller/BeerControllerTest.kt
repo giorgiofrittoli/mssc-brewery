@@ -7,8 +7,8 @@ import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.BDDMockito.any
-import org.mockito.BDDMockito.given
+import org.mockito.ArgumentMatchers
+import org.mockito.BDDMockito.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -37,9 +37,8 @@ internal class BeerControllerTest {
     @BeforeEach
     fun setUp() {
         validBeer = BeerDto().apply {
-            id = UUID.randomUUID()
-            name = "Pippo franco"
-            style = "IPA"
+            beerName = "Pippo franco"
+            beerStyle = "IPA"
             upc = 11
         }
     }
@@ -47,21 +46,22 @@ internal class BeerControllerTest {
     @Test
     fun getBeer() {
 
-        given(beerService.getBeerByID(validBeer.id)).willReturn(validBeer)
+        val id = UUID.randomUUID()
 
-        mockMvc.perform(get("/api/v1/beer/" + validBeer.id.toString())
+        given(beerService.getBeerByID(id)).willReturn(validBeer)
+
+        mockMvc.perform(get("/api/v1/beer/$id")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk)
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id", equalTo(validBeer.id.toString())))
-                .andExpect(jsonPath("$.name", equalTo(validBeer.name)))
+                .andExpect(jsonPath("$.beerName", equalTo(validBeer.beerName)))
     }
 
     @Test
     fun handlePost() {
         //given
         val beerDtoJson = objectMapper.writeValueAsString(validBeer)
-        given(beerService.saveBeer(validBeer)).willReturn(validBeer)
+        given(beerService.saveBeer(any(BeerDto::class.java))).willReturn(validBeer)
 
         //when
         mockMvc.perform(post("/api/v1/beer")
@@ -77,7 +77,7 @@ internal class BeerControllerTest {
         val beerDtoJson = objectMapper.writeValueAsString(validBeer)
 
         //when
-        mockMvc.perform(put("/api/v1/beer/" + validBeer.id.toString())
+        mockMvc.perform(put("/api/v1/beer/" + UUID.randomUUID())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(beerDtoJson))
                 .andExpect(status().isNoContent)

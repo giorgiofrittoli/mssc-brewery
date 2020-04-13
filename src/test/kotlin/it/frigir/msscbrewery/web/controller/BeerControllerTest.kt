@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.BDDMockito.*
-import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -18,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import java.util.*
+import kotlin.reflect.full.createInstance
 
 @ExtendWith(SpringExtension::class)
 @WebMvcTest(BeerController::class)
@@ -61,7 +61,7 @@ internal class BeerControllerTest {
     fun handlePost() {
         //given
         val beerDtoJson = objectMapper.writeValueAsString(validBeer)
-        //given(beerService.saveBeer(any()))).willReturn(validBeer)
+        given(beerService.saveBeer(any(BeerDto::class.javaObjectType))).willReturn(validBeer)
 
         //when
         mockMvc.perform(post("/api/v1/beer")

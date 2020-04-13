@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*
 import java.util.*
 import javax.validation.Valid
 
+@Deprecated("deprecated")
 @Controller
 @RequestMapping("/api/v1/beer")
 class BeerController(val beerService: BeerService) {

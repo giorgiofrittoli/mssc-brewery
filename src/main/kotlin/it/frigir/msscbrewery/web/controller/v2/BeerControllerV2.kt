@@ -45,12 +45,5 @@ class BeerControllerV2(val beerService: BeerServiceV2) {
         beerService.deleteBeer(beerId)
     }
 
-    @ExceptionHandler(ConstraintViolationException::class)
-    fun validationExceptionHandler(e: ConstraintViolationException): ResponseEntity<List<String>> {
-        var errors = mutableListOf<String>()
-        e.constraintViolations.forEach(Consumer { errors.add((it.propertyPath + ": " + it.message).toString()) })
-        return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
-    }
-
 
 }

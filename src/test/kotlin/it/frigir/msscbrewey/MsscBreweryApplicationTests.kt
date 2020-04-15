@@ -1,4 +1,4 @@
-package it.frigir.msscbrewery
+package it.frigir.msscbrewey
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

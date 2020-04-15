@@ -1,7 +1,8 @@
-package it.frigir.msscbrewery.web.controller
+package it.frigir.msscbrewey.web.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import it.frigir.msscbrewery.services.BeerService
+import it.frigir.msscbrewery.web.controller.BeerController
 import it.frigir.msscbrewery.web.model.BeerDto
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.BeforeEach

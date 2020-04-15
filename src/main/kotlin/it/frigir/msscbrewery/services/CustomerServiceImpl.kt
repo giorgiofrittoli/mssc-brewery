@@ -1,4 +1,4 @@
-package it.frigir.msscbrewery.web.services
+package it.frigir.msscbrewery.services
 
 import it.frigir.msscbrewery.web.model.CustomerDto
 import org.springframework.stereotype.Service

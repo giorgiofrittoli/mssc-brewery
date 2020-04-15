@@ -14,7 +14,7 @@ class MvcExHandler {
     @ExceptionHandler(ConstraintViolationException::class)
     fun validationExceptionHandler(e: ConstraintViolationException): ResponseEntity<List<String>> {
         val errors = mutableListOf<String>()
-        e.constraintViolations.forEach { e -> errors.add(e.toString()) }
+        e.constraintViolations.forEach { exc -> errors.add(exc.toString()) }
         return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
     }
 

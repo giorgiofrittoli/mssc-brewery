@@ -1,13 +1,14 @@
 package it.frigir.msscbrewery.web.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import it.frigir.msscbrewery.services.BeerService
 import it.frigir.msscbrewery.web.model.BeerDto
-import it.frigir.msscbrewery.web.services.BeerService
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.BDDMockito.*
+import org.mockito.BDDMockito.any
+import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -17,7 +18,6 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import java.util.*
-import kotlin.reflect.full.createInstance
 
 @ExtendWith(SpringExtension::class)
 @WebMvcTest(BeerController::class)

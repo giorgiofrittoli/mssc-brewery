@@ -1,6 +1,6 @@
 package it.frigir.msscbrewery.web.controller
 
-import it.frigir.msscbrewery.web.services.BeerService
+import it.frigir.msscbrewery.services.BeerService
 import it.frigir.msscbrewery.web.model.BeerDto
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -30,14 +30,14 @@ class BeerController(val beerService: BeerService) {
     }
 
     @PutMapping("/{beerId}")
-    fun handleUpdate(@PathVariable("beerId") beerId: UUID,@Valid @RequestBody beerDto: BeerDto): ResponseEntity<String> {
+    fun handleUpdate(@PathVariable("beerId") beerId: UUID, @Valid @RequestBody beerDto: BeerDto): ResponseEntity<String> {
         beerService.updateBeer(beerId, beerDto)
         return ResponseEntity(HttpStatus.NO_CONTENT)
     }
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun handleDelete(@PathVariable("beerId") beerId:UUID){
+    fun handleDelete(@PathVariable("beerId") beerId: UUID) {
         beerService.deleteBeer(beerId)
     }
 

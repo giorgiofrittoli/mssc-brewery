@@ -1,8 +1,9 @@
 package it.frigir.msscbrewery.web.model
 
-import org.jetbrains.annotations.NotNull
 import java.util.*
-import javax.validation.constraints.*
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.Null
+import javax.validation.constraints.Size
 
 class CustomerDto {
     @Null

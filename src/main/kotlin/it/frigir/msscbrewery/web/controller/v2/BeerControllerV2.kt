@@ -1,8 +1,7 @@
 package it.frigir.msscbrewery.web.controller.v2
 
-import it.frigir.msscbrewery.web.model.BeerDto
+import it.frigir.msscbrewery.services.v2.BeerServiceV2
 import it.frigir.msscbrewery.web.model.v2.BeerDtoV2
-import it.frigir.msscbrewery.web.services.v2.BeerServiceV2
 import org.jetbrains.annotations.NotNull
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -11,8 +10,6 @@ import org.springframework.stereotype.Controller
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import java.util.*
-import java.util.function.Consumer
-import javax.validation.ConstraintViolationException
 
 @Validated
 @Controller

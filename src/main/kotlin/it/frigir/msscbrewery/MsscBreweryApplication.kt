@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class MsscBreweryApplication
 
 fun main(args: Array<String>) {
-	runApplication<MsscBreweryApplication>(*args)
+    runApplication<MsscBreweryApplication>(*args)
 }

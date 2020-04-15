@@ -1,7 +1,7 @@
 package it.frigir.msscbrewery.web.controller
 
+import it.frigir.msscbrewery.services.CustomerService
 import it.frigir.msscbrewery.web.model.CustomerDto
-import it.frigir.msscbrewery.web.services.CustomerService
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

@@ -1,4 +1,4 @@
-package it.frigir.msscbrewery.web.services.v2
+package it.frigir.msscbrewery.services.v2
 
 import it.frigir.msscbrewery.web.model.v2.BeerDtoV2
 import org.springframework.stereotype.Service
